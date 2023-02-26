@@ -1,0 +1,50 @@
+/* #editor, #editor .CodeMirror {
+  width: 100%; height: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+#empty-editor {
+  width: 100%; height: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: #dddddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+.editor-menu {
+  height: 40px;
+  background-color: var(--lightest-background-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+#preview {
+  width: 50%;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  background-color: var(--light-background-color);
+  color: #dddddd; 
+  overflow: auto;
+  padding: 1.2rem;
+} */
+
+.editor-content {
+  height: 100%;
+  overflow: auto;
+}
+
+.editor-content .editor-area {
+  width: 50%;
+  height: 100%;
+}
+.editor-content .editor-preview {
+  width: 50%;
+  height: 100%;
+}
