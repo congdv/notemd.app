@@ -1,4 +1,3 @@
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -10,8 +9,6 @@
   </p>
   <p align="center">Try it online at https://notemd-app.vercel.app/</p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -30,50 +27,53 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 <!-- Features -->
+
 ## Features
+
 1. Vim-based interface for writing and editing Markdown files.
 2. Ability to preview Markdown files in real-time.
-3. Ability to open and save local Markdown or plain text files directly in the app, 
-allowing users to seamlessly switch between editing files in the app and other editors.
+3. Ability to open and save local Markdown or plain text files directly in the app,
+   allowing users to seamlessly switch between editing files in the app and other editors.
 4. ...
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
-
-
 ## Development
+
 To run it in locally:
+
 1. Clone this repository
-  ```
-  git clone https://github.com/congdv/notemd.app
-  ```
+
+```
+git clone https://github.com/congdv/notemd.app
+```
+
 2. Install the dependencies
-  ```
-  npm install
-  ```
+
+```
+npm install
+```
+
 3. Start project
-  ```
-  npm run dev
-  ```
+
+```
+npm run dev
+```
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 TBD
 
-
-
 <!-- LICENSE -->
+
 ## License
 
 notemd.app is published under BSD 3-Clause license.
-
-
-
-

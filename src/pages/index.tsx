@@ -8,7 +8,6 @@ export default function Home() {
     <>
       <Head>
         <title>notemd.app</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Editor />
     </>
