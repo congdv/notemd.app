@@ -7,7 +7,7 @@ import { EDITOR_LAYOUT, FILE_SAVED_ID } from '@/state/constants'
 import { openFileFromLocalSystem, saveFileToLocalSystem } from '@/state/data/filesystem'
 import DropdownMenu from './DropdownMenu'
 import useOnClickOutside from '@/hooks/useOnClickOutside'
-import { HamburgerMenuIcon } from './Icons'
+import { HamburgerMenuIcon } from './icons'
 
 const Help = ({ onClick }: { onClick: any }) => {
   return (
