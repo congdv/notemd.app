@@ -10,7 +10,8 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "postinstall": "husky install",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@codemirror/basic-setup": "^0.20.0",
