@@ -8,7 +8,7 @@
   <p align="center">
     Experience the ultimate writing flow with Vim and Markdow
   </p>
-  <p align="center">Try it online at https://notemd.congdv.com</p>
+  <p align="center">Try it online at https://notemd-app.vercel.app/</p>
 </div>
 
 
