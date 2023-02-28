@@ -8,7 +8,7 @@
   <p align="center">
     Experience the ultimate writing flow with Vim and Markdow
   </p>
-  <p align="center">Try it online at https://notemd.vercel.app</p>
+  <p align="center">Try it online at https://notemd.congdv.com</p>
 </div>
 
 
@@ -72,7 +72,7 @@ TBD
 <!-- LICENSE -->
 ## License
 
-TBD
+notemd.app is published under BSD 3-Clause license.
 
 
 
