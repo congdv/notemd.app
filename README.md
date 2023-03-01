@@ -31,6 +31,8 @@
 
 ## About The Project
 
+Designed with Markdown and Vim enthusiasts in mind, `notemd.app` is an innovative text editor that harnesses the power of Vim's key bindings to make writing and editing Markdown files faster and more efficient than ever before. With `notemd.app`, you can seamlessly navigate and edit text using Vim's familiar key bindings, and then easily save your work as a Markdown file. Say goodbye to clunky text editors and hello to the streamlined power of `notemd.app`!
+
 <!-- Features -->
 
 ## Features
@@ -43,6 +45,8 @@
 <!-- USAGE EXAMPLES -->
 
 ## Usage
+
+TBD
 
 ## Development
 
