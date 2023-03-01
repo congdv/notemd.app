@@ -48,13 +48,19 @@ body {
   justify-content: space-between;
 }
 
+.editor-toolbar .github {
+  border: none;
+  background: transparent;
+}
+
 .editor-toolbar .preview-mode {
   border: none;
   background: transparent;
   margin-top: 5px;
 }
 
-.editor-toolbar .preview-mode:hover {
+.editor-toolbar .preview-mode:hover,
+.editor-toolbar .github:hover {
   cursor: pointer;
 }
 
