@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import { GA_TRACKING_ID } from '@/utils/gtag'
 import useGtag from '@/utils/useGtag'
 import type { AppProps } from 'next/app'
