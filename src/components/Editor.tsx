@@ -2,12 +2,15 @@ import { useRef, useState, useEffect, useCallback } from 'react'
 import CodeMirror, { ReactCodeMirrorRef } from '@uiw/react-codemirror'
 import { vim } from '@replit/codemirror-vim'
 import { marked } from 'marked'
+import { Bars3Icon } from '@heroicons/react/24/solid'
 
 import { EDITOR_LAYOUT, FILE_SAVED_ID } from '@/state/constants'
 import { openFileFromLocalSystem, saveFileToLocalSystem } from '@/state/data/filesystem'
 import DropdownMenu from './DropdownMenu'
 import useOnClickOutside from '@/hooks/useOnClickOutside'
 import { HamburgerMenuIcon } from './icons'
+import { GithubService } from '@/service/GithubService'
+import GithubFormModal from './GithubFormModal'
 
 const Help = ({ onClick }: { onClick: any }) => {
   return (
@@ -51,6 +54,7 @@ const Editor = () => {
   const [showHelp, setShowHelp] = useState<boolean>(false)
   const [edit, setEdit] = useState<number>(EDITOR_LAYOUT.SPLIT_EDITOR_PREVIEW)
   const [openMenu, setOpenMenu] = useState<boolean>(false)
+  const [modalIsOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const output = marked.parse(text)
@@ -89,20 +93,52 @@ const Editor = () => {
       console.error(err)
     }
   }
+
+  const saveToGithub = async () => {
+    try {
+      setOpenMenu(false)
+      setIsOpen(true)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   useOnClickOutside($menuRef, () => {
     setOpenMenu(false)
   })
+  const onSaveTextToGithub = async (data: GithubFormData) => {
+    try {
+      const savedUser = localStorage.getItem('github-user')
+      if (!savedUser) {
+        throw new Error('Not found user')
+      }
+      const githubUser = JSON.parse(savedUser)
+      const githubService = new GithubService(data.accessToken, githubUser.login, githubUser.email)
+      await githubService.saveFile(data.repository, data.saveAs, text)
+      setIsOpen(false)
+      localStorage.setItem('github-access-token', data.accessToken)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div id="editor">
+      {modalIsOpen ? (
+        <GithubFormModal
+          setIsOpen={(isOpen) => setIsOpen(isOpen)}
+          onSaveData={onSaveTextToGithub}
+        />
+      ) : null}
+
       <div className="editor-toolbar">
         <div className="left-toolbar">
           <DropdownMenu
             ref={$menuRef}
             open={openMenu}
             trigger={
-              <div className="menu-trigger" onClick={() => setOpenMenu(!openMenu)}>
-                {HamburgerMenuIcon}
-              </div>
+              <button onClick={() => setOpenMenu(!openMenu)}>
+                <Bars3Icon className="h-6 w-6" />
+              </button>
             }
             menu={[
               <div className="menu-item" key={0} onClick={openFile}>
@@ -111,12 +147,15 @@ const Editor = () => {
               <div className="menu-item" key={1} onClick={saveFile}>
                 Save as...
               </div>,
+              <div className="menu-item" key={2} onClick={saveToGithub}>
+                Save file to Github
+              </div>,
             ]}
           />
         </div>
         <div className="right-toolbar">
           <button
-            className="github"
+            className="github mr-3"
             onClick={() => window.open('https://github.com/congdv/notemd.app', '_blank')}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -157,11 +196,12 @@ const Editor = () => {
           />
         </div>
         <div
-          className={`editor-preview ${edit === EDITOR_LAYOUT.FULL_PREVIEW && 'full-width'} ${
+          className={`editor-preview  ${edit === EDITOR_LAYOUT.FULL_PREVIEW && 'full-width'} ${
             edit === EDITOR_LAYOUT.FULL_EDITOR && 'disappear'
           }`}
-          dangerouslySetInnerHTML={{ __html: preview }}
-        ></div>
+        >
+          <div className="prose max-w-full" dangerouslySetInnerHTML={{ __html: preview }}></div>
+        </div>
       </div>
       {showHelp ? (
         <Help onClick={() => setShowHelp(false)} />
