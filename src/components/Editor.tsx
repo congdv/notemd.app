@@ -127,6 +127,8 @@ const Editor = () => {
         <GithubFormModal
           setIsOpen={(isOpen) => setIsOpen(isOpen)}
           onSaveData={onSaveTextToGithub}
+          isOpen={modalIsOpen}
+          closeModal={() => setIsOpen(false)}
         />
       ) : null}
 

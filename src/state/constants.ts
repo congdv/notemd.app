@@ -9,3 +9,7 @@ export const EDITOR_LAYOUT = {
   SPLIT_EDITOR_PREVIEW: 1,
   FULL_PREVIEW: 2,
 }
+
+export const KEYS = {
+  ESCAPE: 'Escape',
+}
