@@ -26,7 +26,7 @@ const GithubFormModal = ({
   const [isSaving, setSaving] = useState(false)
   const [isValidToken, setValidToken] = useState(true)
 
-  const onSubmit: SubmitHandler<GithubFormData> = async (data) => {
+  const onSubmit = async (data: GithubFormData) => {
     if (data) {
       setSaving(true)
       await onSaveData(data)
@@ -164,7 +164,7 @@ const GithubFormModal = ({
                     >
                       Close
                     </button>
-                    <Button type="submit" isWorking={isSaving} onClick={onSubmit}>
+                    <Button type="submit" isWorking={isSaving}>
                       Save
                     </Button>
                   </div>

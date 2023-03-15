@@ -8,12 +8,16 @@ type ButtonProps = {
   iconSize?: number
   disabled?: boolean
   isWorking?: boolean
+  type?: 'submit' | 'reset'
   onClick?: () => void
 }
 
 // eslint-disable-next-line react/display-name
 const Button = forwardRef(
-  ({ children, variant, disabled, isWorking, onClick, ...buttonRests }: ButtonProps, ref: any) => {
+  (
+    { children, variant, disabled, isWorking, type, onClick, ...buttonRests }: ButtonProps,
+    ref: any
+  ) => {
     const handleClick = () => {
       if (!disabled && !isWorking && onClick) {
         onClick()
@@ -26,6 +30,7 @@ const Button = forwardRef(
         onClick={handleClick}
         disabled={disabled || isWorking}
         ref={ref}
+        type={type}
         {...buttonRests}
       >
         {isWorking && (
