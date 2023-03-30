@@ -7,7 +7,7 @@
   <p align="center">
     Experience the ultimate writing flow with Vim and Markdow
   </p>
-  <p align="center">Try it online at https://notemd-app.vercel.app/</p>
+  <p align="center">Try it online at https://notemd.congdv.com</p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -46,7 +46,9 @@ Designed with Markdown and Vim enthusiasts in mind, `notemd.app` is an innovativ
 
 ## Usage
 
-TBD
+Using Vim key binding to edit
+
+![screenshot](./screenshot.png)
 
 ## Development
 
