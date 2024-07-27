@@ -3,6 +3,7 @@ import CodeMirror, { ReactCodeMirrorRef } from '@uiw/react-codemirror'
 import { vim } from '@replit/codemirror-vim'
 import { marked } from 'marked'
 import { Bars3Icon } from '@heroicons/react/24/solid'
+import { EditorView } from '@codemirror/view'
 
 import { EDITOR_LAYOUT, FILE_SAVED_ID } from '@/state/constants'
 import { openFileFromLocalSystem, saveFileToLocalSystem } from '@/state/data/filesystem'
@@ -188,8 +189,8 @@ const Editor = () => {
             ref={$editorRef}
             value={text}
             height="100%"
-            basicSetup={{ defaultKeymap: false }}
-            extensions={[vim()]}
+            basicSetup={{ defaultKeymap: false, lineNumbers: true }}
+            extensions={[vim(), EditorView.lineWrapping]}
             autoFocus={true}
             onChange={onChange}
             style={{
